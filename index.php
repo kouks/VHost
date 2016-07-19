@@ -31,12 +31,13 @@ require 'includes/actions.php';
 	<link rel="stylesheet" href="css/glob.css">
 </head>
 <body>
-	<div class="site-main">
+	<main class="site-main">
 
 		<form action="/" method="post" class="new-vhost">
-			<input type="text" name="addr" value="127.0.0.1" placeholder="Address">
-			<input type="text" name="name" placeholder="Server name">
-			<button>Add</button>
+			<input type="text" name="addr" value="127.0.0.1" placeholder="Address"><!-- 
+		 --><input type="text" name="name" placeholder="Server name"><!-- 
+		 --><button>Add</button>
+		 	<!-- These comments garantee that there is no whitespace in between inputs	 -->		
 		</form>
 
 		<p class="comment">Add a separator by prefixing the server name with a hashmark (#)</p>
@@ -88,6 +89,9 @@ require 'includes/actions.php';
 				</tr>
 			<?php endforeach; ?>
 		</table>
-	</div>	
+	</main>
+	<footer>
+		
+	</footer>	
 </body>
 </html>

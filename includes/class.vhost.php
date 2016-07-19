@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Automatic adding of VHost logic is handled here
  * 

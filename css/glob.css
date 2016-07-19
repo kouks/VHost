@@ -231,9 +231,9 @@ h4,
 h5,
 h6 {
   clear: both;
+  font-family: 'Prompt', sans-serif;
   margin: 0;
   text-rendering: optimizeLegibility;
-  font-family: 'Prompt', sans-serif;
 }
 /**
  * 3.3 - Text
@@ -257,31 +257,39 @@ p {
  */
 .new-vhost {
   margin: 15px 0;
+  border: 1px solid #e5e5e5;
 }
 .new-vhost input,
 .new-vhost select,
 .new-vhost button {
-  padding: 10px;
-  margin: 0;
-  border: 1px solid #ddd;
-  line-height: 21px;
-  outline: none;
   background: white;
+  border: none;
+  line-height: 21px;
+  margin: 0;
+  outline: none;
+  padding: 10px;
+  width: 20%;
+}
+.new-vhost input:nth-child(2),
+.new-vhost select:nth-child(2),
+.new-vhost button:nth-child(2) {
+  width: 60%;
 }
 .new-vhost button {
   font-weight: 700;
+  background: #487091;
+  color: #fff;
+  width: 20%;
 }
 .new-vhost button:hover {
-  background: #487091;
-  border-color: #487091;
-  color: #fff;
+  color: #eee;
 }
 /**
  * 5.0 - Tables
  */
 table.table-simple {
-  border: 1px solid #ddd;
   border-radius: 3px;
+  border: 1px solid #e5e5e5;
   margin-bottom: 20px;
 }
 table.table-simple td {
@@ -296,11 +304,11 @@ table.table-simple tfoot td {
 table.table-simple thead tr,
 table.table-simple tfoot tr {
   background: #fff;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #ddd;
 }
 table.table-simple tfoot tr {
-  border-top: 1px solid #ccc;
   border-bottom: none;
+  border-top: 1px solid #ddd;
 }
 table.table-simple tbody td {
   padding: 10px;
@@ -322,14 +330,14 @@ table.table-simple tbody tr:nth-child(odd) {
   background: #fafafa;
 }
 /**
- * 6.0 - Search bar
+ * 6.0 - Content
  */
 body {
   background: #eee;
 }
 .site-main {
-  width: 60%;
   margin: 70px 20% 0;
+  width: 60%;
 }
 .actions {
   float: right;
@@ -345,8 +353,8 @@ body {
   color: #b23432;
 }
 p.comment {
-  font-style: italic;
-  font-size: 14px;
   color: #777;
+  font-size: 14px;
+  font-style: italic;
   padding: 0 10px;
 }
