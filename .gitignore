@@ -1,0 +1,5 @@
+node_modules
+resources
+.editorconfig
+gulpfile.js
+package.json
