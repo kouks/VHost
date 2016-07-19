@@ -1,4 +1,4 @@
 {
-		"apache_config_path": "C:\\wamp\\bin\\apache\\apache2.4.9\\conf\\httpd.conf",
+		"version": "0.1",
 		"hosts_path": "C:\\Windows\\System32\\drivers\\etc\\hosts"
 }
