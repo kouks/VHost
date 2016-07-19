@@ -18,6 +18,7 @@
  *	   3.2 - Text
  * 4.0 - Forms
  * 5.0 - Tables
+ * 6.0 - Content
  */
 /**
  * 1.0 - Reset
@@ -288,6 +289,8 @@ table.table-simple td {
 }
 table.table-simple thead td,
 table.table-simple tfoot td {
+  color: #487091;
+  font-weight: 700;
   padding: 15px 10px;
 }
 table.table-simple thead tr,
