@@ -312,6 +312,12 @@ table.table-simple tbody tr {
 table.table-simple tbody tr:hover .actions {
   visibility: visible;
 }
+table.table-simple tbody tr.darkened {
+  background: #f2f2f2;
+  color: #777;
+  font-size: 14px;
+  font-style: italic;
+}
 table.table-simple tbody tr:nth-child(odd) {
   background: #fafafa;
 }
@@ -337,4 +343,10 @@ body {
 }
 .actions a.delete {
   color: #b23432;
+}
+p.comment {
+  font-style: italic;
+  font-size: 14px;
+  color: #777;
+  padding: 0 10px;
 }

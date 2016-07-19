@@ -2,7 +2,7 @@
 /**
  * Automatic adding of VHosts
  *
- * @version 0.1
+ * @version 0.2
  * @package VHost
  * @author Pavel Koch
  */
@@ -13,6 +13,7 @@
  */
 
 require 'includes/class.vhost.php';
+require 'includes/class.separator.php';
 
 /**
  * Actions file
@@ -38,6 +39,8 @@ require 'includes/actions.php';
 			<button>Add</button>
 		</form>
 
+		<p class="comment">Add a separator by prefixing the server name with a hashmark (#)</p>
+
 		<table class="table-simple">
 			<thead>
 				<tr>
@@ -53,7 +56,22 @@ require 'includes/actions.php';
 				</tr>
 			</tfoot>
 
-			<?php foreach(VHost::all() as $vhost) : ?>
+			<?php foreach (VHost::all() as $vhost) : ?>
+				<?php if ($vhost instanceof Separator) : ?>
+					<tr class="darkened">
+						<td colspan="2"><?= $vhost->content ?></td>
+						<td>
+							<div class="actions">
+								<!-- <span class="edit">
+									<a href="">Edit</a> | 
+								</span> -->
+								<span class="trash">
+									<a href="?del=<?= $vhost->row ?>" class="delete">Delete</a>
+								</span>
+							</div>
+						</td>
+					</tr>
+				<?php continue; endif; ?>
 				<tr>
 					<td><?= $vhost->addr ?></td>
 					<td><?= $vhost->name ?></td>

@@ -52,15 +52,24 @@ class VHost
 	 */
 	public static function write($addr, $name)
 	{
+		// remove whitespaces in hosts file
+		self::removeWhitespaces();
+
 		$config = self::getConfig();
 		$hosts = fopen($config->hosts_path, 'a+');
 
 		// return false if opening failed
-		if(!$hosts) {
+		if (!$hosts) {
 			return false;
 		}
 
-		fwrite($hosts, "\n" . $addr . " " . $name);
+		// deciding whether to add a separator or a vhost itself
+		if (preg_match('/^#.*$/', $name)) {
+			fwrite($hosts, "\n" . $name);
+		} else {
+			fwrite($hosts, "\n" . $addr . " " . $name);
+		}
+
 		fclose($hosts);
 
 		return true;
@@ -83,6 +92,11 @@ class VHost
 			$line = preg_replace('/\s+/', ' ', preg_replace('/\n/', '', $line));
 
 			if (preg_match('/^#.*$/', $line) || empty($line)) {
+
+				// adding a separator if the line is not entirely empty
+				if (!empty($line)) {
+					$ret[] = new Separator($line, $row);
+				}
 				continue;
 			}
 
@@ -104,19 +118,19 @@ class VHost
 		$config = self::getConfig();
 
 		// going through hosts file
-		$hostsContents = file($config->hosts_path);
+		$contents = file($config->hosts_path);
 
 		// deleting given line
-		unset($hostsContents[$row]);
+		unset($contents[$row]);
 
 		$hosts = fopen($config->hosts_path, 'w+');
 
 		// return false if opening failed
-		if(!$hosts) {
+		if (!$hosts) {
 			return false;
 		}
 
-		fwrite($hosts, implode("\n", $hostsContents));
+		fwrite($hosts, implode("", $contents));
 		fclose($hosts);
 
 		return true;
@@ -132,4 +146,34 @@ class VHost
 		return json_decode(file_get_contents('config.json'));
 	}	
 
+	/**
+	 * Removing empty lines in hosts
+	 * 
+	 * @return 	Bool $success success
+	 */
+	private static function removeWhitespaces()
+	{
+		$config = self::getConfig();
+		$contents = [];
+
+		foreach (file($config->hosts_path) as $line) {
+
+			// filter whitespaces
+			if ($line !== "\n") {
+				$contents[] = $line;
+			}
+		}
+
+		$hosts = fopen($config->hosts_path, "w+");
+
+		// return false if opening failed
+		if (!$hosts) {
+			return false;
+		}
+
+		fwrite($hosts, implode("", $contents));
+		fclose($hosts);
+
+		return true;
+	}	
 }
