@@ -32,9 +32,9 @@ class VHost
 	/**
 	 * Class constructor
 	 * 
-	 * @param 	String $addr 	server address
-	 * @param 	String $name 	server name
-	 * @param 	Int $row 		vhost location in file
+	 * @param 	String $addr server address
+	 * @param 	String $name server name
+	 * @param 	Int $row vhost location in file
 	 */
 	public function __construct($addr, $name, $row = -1)
 	{
@@ -46,8 +46,9 @@ class VHost
 	/**
 	 * Setting a new VHost
 	 * 
-	 * @param 	VHost $vhost 	instance of VHost class
-	 * @return 	Bool $success 	success
+	 * @param 	String $addr server address
+	 * @param 	String $name server name
+	 * @return 	Bool $success success
 	 */
 	public static function write($addr, $name)
 	{
@@ -68,7 +69,7 @@ class VHost
 	/**
 	 * Gets all available vhosts
 	 * 
-	 * @return 	Array $vhosts	array of available VHosts
+	 * @return 	Array $vhosts array of available VHosts
 	 */
 	public static function all()
 	{
@@ -95,8 +96,8 @@ class VHost
 	/**
 	 * Deleting a vhost
 	 * 
-	 * @param 	Int $row 		row vhost can be found on
-	 * @return 	Bool $success	success
+	 * @param 	Int $row row vhost can be found on
+	 * @return 	Bool $success success
 	 */
 	public static function delete($row)
 	{
@@ -124,7 +125,7 @@ class VHost
 	/**
 	 * Getting config file
 	 * 
-	 * @return 	Json $config 	config contents
+	 * @return 	Json $config config contents
 	 */
 	private static function getConfig()
 	{

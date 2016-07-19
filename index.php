@@ -53,17 +53,17 @@ require 'includes/actions.php';
 				</tr>
 			</tfoot>
 
-			<?php foreach(\VHost::all() as $vhost) : ?>
+			<?php foreach(VHost::all() as $vhost) : ?>
 				<tr>
 					<td><?= $vhost->addr ?></td>
 					<td><?= $vhost->name ?></td>
 					<td>
 						<div class="actions">
 							<!-- <span class="edit">
-								<a href="" aria-label="Edit">Edit</a> | 
+								<a href="">Edit</a> | 
 							</span> -->
 							<span class="trash">
-								<a href="?del=<?= $vhost->row ?>" class="delete" aria-label="Delete">Delete</a>
+								<a href="?del=<?= $vhost->row ?>" class="delete">Delete</a>
 							</span>
 						</div>
 					</td>
