@@ -36,6 +36,7 @@ require 'includes/actions.php';
 		<form action="/" method="post" class="new-vhost">
 			<input type="text" name="addr" value="127.0.0.1" placeholder="Address"><!-- 
 		 --><input type="text" name="name" placeholder="Server name"><!-- 
+		 --><input type="text" name="root" placeholder="Document root"><!--
 		 --><button>Add</button>
 		 	<!-- These comments garantee that there is no whitespace in between inputs	 -->		
 		</form>

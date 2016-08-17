@@ -21,6 +21,6 @@ if (isset($_GET['del'])) {
  *
  */
 
-if (isset($_POST['addr']) && isset($_POST['name'])) {
-	VHost::write($_POST['addr'], $_POST['name']);
+if (isset($_POST['addr']) && isset($_POST['name']) && isset($_POST['root'])) {
+	VHost::write($_POST['addr'], $_POST['name'], $_POST['root']);
 }

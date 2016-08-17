@@ -49,7 +49,7 @@ class VHost
 	 * @param 	String $name server name
 	 * @return 	Bool $success success
 	 */
-	public static function write($addr, $name)
+	public static function write($addr, $name, $root)
 	{
 		// remove whitespaces in hosts file
 		self::removeWhitespaces();
@@ -69,7 +69,31 @@ class VHost
 			fwrite($hosts, "\n" . $addr . " " . $name);
 		}
 
+		// Httpd conf
 		fclose($hosts);
+
+		$httpd = fopen($config->httpd_path, 'a+');
+
+		// return false if opening failed
+		if (!$httpd) {
+			return false;
+		}
+
+		fwrite($httpd, 
+			"\n\n" .
+			"<VirtualHost *:80>\n" .
+				"\tServerName {$name}\n" .
+				"\tDocumentRoot {$root}\n" .
+				"\t<Directory  \"{$root}\">\n" .
+					"\t\tOptions Indexes FollowSymLinks MultiViews\n" .
+					"\t\tAllowOverride All\n" .
+					"\t\tRequire local\n" .
+				"\t</Directory>\n" .
+			"</VirtualHost>"
+		);
+
+
+		fclose($httpd);
 
 		return true;
 	}
