@@ -84,7 +84,7 @@ class VHost
 			"<VirtualHost *:80>\n" .
 				"\tServerName {$name}\n" .
 				"\tDocumentRoot {$root}\n" .
-				"\t<Directory  \"{$root}\">\n" .
+				"\t<Directory  \"{$root}/\">\n" .
 					"\t\tOptions Indexes FollowSymLinks MultiViews\n" .
 					"\t\tAllowOverride All\n" .
 					"\t\tRequire local\n" .
